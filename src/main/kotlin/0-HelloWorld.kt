@@ -1,3 +1,9 @@
+
+/*
+    Learning resource : https://www.javatpoint.com/kotlin-tutorial
+ */
+
+
 fun main(args : Array<String>){
     println("Hello World")
 
@@ -8,4 +14,5 @@ fun main(args : Array<String>){
 
     var language2:String = "java"
     val salary2:Int = 30000
+
 }
