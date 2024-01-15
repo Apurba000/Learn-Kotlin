@@ -1,5 +1,6 @@
 /*
 https://www.javatpoint.com/kotlin-function
+https://medium.com/@sevbanbuyer/inline-functions-in-kotlin-f26dd324b770#:~:text=Inline%20functions%20in%20Kotlin%20are%20a%20valuable%20tool%20that%20can,faster%20execution%20and%20better%20optimization.
  */
 
 fun main(args: Array<String>){
@@ -36,6 +37,15 @@ fun main(args: Array<String>){
 
     val myLambda : (Int) -> Unit = { result:Int -> println(result ) }
     sumHighLevelLambda(5, 10, myLambda)
+
+
+    // Higher order(High level) functions
+    val fn:(String,String) -> String = {org,portal->"$org develop $portal"}
+    myFun("brainstation23","CMS", fn)
+
+    someHigherOrderFunction{
+        println(it);
+    }
 }
 
 fun sum(){
@@ -76,4 +86,18 @@ tailrec fun recursiveSum(n: Long, semiResult: Long = 0) : Long {
 fun sumHighLevelLambda(a:Int, b:Int, myLambda:(Int) -> Unit){
     val result = a+b
     myLambda(result)
+}
+
+/*
+High order function (Higher level function) is a function which accepts function as a parameter or returns a function
+or can do both. Means, instead of passing Int, String, or other types as a parameter in a function
+we can pass a function as a parameter in other function.
+ */
+fun myFun(org: String,portal: String, fn: (String,String) -> String){
+    val result = fn(org,portal)
+    println(result)
+}
+
+fun someHigherOrderFunction(someLambda: (String) -> Unit){
+    someLambda("From Higher Order Function")
 }
